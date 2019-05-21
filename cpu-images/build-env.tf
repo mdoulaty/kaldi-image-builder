@@ -24,7 +24,6 @@ provider "http" {
 
 # Get IP address of the host (https://stackoverflow.com/questions/46763287/i-want-to-identify-the-public-ip-of-the-terraform-execution-environment-and-add)
 data "http" "myip" {
-    version = "~> 1.1"
     url     = "http://ipv4.icanhazip.com"
 }
 
@@ -70,7 +69,6 @@ resource "azurerm_public_ip" "myterraformpublicip" {
         environment = "Kaldi"
     }
 }
-
 
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "myterraformnsg" {
