@@ -9,7 +9,10 @@ To build the latest CPU-based image, run:
 make cpu
 ```
 
-It will provision a VM, install the required software to build Kaldi's CPU-based Docker image, then build and push them to Kaldi's repository in DockerHub and then clean up the resources.
+It will provision a VM, install the required software to build Kaldi's CPU-based Docker image, then build and push them to Kaldi's repository in DockerHub and then clean up the resources. The default tag is `latest`, it can be changed by passing a `tag` parameter:
+```bash
+make tag=SOMETAG cpu
+```
 
 Similarly to build GPU-based images, run:
 ```bash
