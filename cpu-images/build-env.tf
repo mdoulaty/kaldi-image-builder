@@ -4,6 +4,7 @@ variable "client_secret" {}
 variable "tenant_id" {}
 variable "docker_hub_username" {}
 variable "docker_hub_password" {}
+variable "image_tag" {}
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
@@ -193,8 +194,8 @@ resource "azurerm_virtual_machine" "myterraformvm" {
             "git clone https://github.com/kaldi-asr/kaldi.git /opt/kaldi",
             "cd /opt/kaldi/docker/debian9.8-cpu/",
             "echo ${var.docker_hub_password} | sudo docker login -u ${var.docker_hub_username} --password-stdin",
-            "sudo docker build --tag kaldiasr/kaldi:latest .",
-            "sudo docker push kaldiasr/kaldi:latest",
+            "sudo docker build --tag kaldiasr/kaldi:${var.image_tag} .",
+            "sudo docker push kaldiasr/kaldi:${var.image_tag}",
     ]
     }
 }
