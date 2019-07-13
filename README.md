@@ -11,4 +11,10 @@ make cpu
 
 It will provision a VM, install the required software to build Kaldi's CPU-based Docker image, then build and push them to Kaldi's repository in DockerHub and then clean up the resources.
 
-Building GPU images is not yet supported.
+Similarly to build GPU-based images, run:
+```bash
+make gpu
+```
+
+To change the region, VM type and other settings or to use a different cloud provider, check `build-env.tf` files.
+The important part for building and pushing the images is located in `provisioner "remote-exec"` section of the files.
